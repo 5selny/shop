@@ -39,9 +39,14 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/img/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/members/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/item/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/images/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
                         .anyRequest().authenticated()); // 접근 가능한 리소스를 설정하고 그 외 나머지 리소스들은 무조건 인증을 완료해야 접근이 가능
 
+        http
+                .exceptionHandling(exception -> exception.authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
+                // 인증되지 않은 사용자가 리소스에 접근하였을 때 수행되는 핸들러를 등록한다.
         return http.build();
     }
 
