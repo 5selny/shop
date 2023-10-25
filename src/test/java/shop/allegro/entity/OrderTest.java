@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import shop.allegro.constant.ItemSellStatus;
 import shop.allegro.repository.ItemRepository;
 import shop.allegro.repository.MemberRepository;
+import shop.allegro.repository.OrderItemRepository;
 import shop.allegro.repository.OrderRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +28,9 @@ class OrderTest {
 
     @Autowired
     MemberRepository memberRepository;
+
+    @Autowired
+    OrderItemRepository orderItemRepository;
 
     @PersistenceContext
     EntityManager em;
@@ -95,4 +99,7 @@ class OrderTest {
         order.getOrderItems().remove(0);    // order 엔티티에서 관리하고 있는 orderItem 리스트의 0번째 인덱스 요소를 제거
         em.flush();
     }
+
+
+
 }
