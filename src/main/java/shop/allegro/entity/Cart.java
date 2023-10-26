@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import shop.allegro.audit.Auditable;
 
 @Entity
 @Table(name = "cart")
 @Getter
 @Setter
 @ToString
-public class Cart {
+public class Cart extends Auditable {
 
     @Id
     @Column(name = "card_id")

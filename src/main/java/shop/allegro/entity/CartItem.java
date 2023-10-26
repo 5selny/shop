@@ -3,12 +3,13 @@ package shop.allegro.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import shop.allegro.audit.Auditable;
 
 @Entity
 @Getter
 @Setter
 @Table(name="cart_item")
-public class CartItem {
+public class CartItem extends Auditable {
 
     @Id
     @GeneratedValue

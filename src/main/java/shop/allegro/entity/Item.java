@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import shop.allegro.audit.Auditable;
 import shop.allegro.constant.ItemSellStatus;
 
 import java.time.LocalDateTime;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class Item {
+public class Item extends Auditable {
 
     @Id
     @Column(name = "item_id")

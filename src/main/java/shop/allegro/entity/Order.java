@@ -3,6 +3,7 @@ package shop.allegro.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import shop.allegro.audit.Auditable;
 import shop.allegro.constant.OrderStatus;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name="orders")
-public class Order {
+public class Order extends Auditable {
 
     @Id
     @GeneratedValue

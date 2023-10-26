@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -34,6 +35,7 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/"))
                 .authorizeHttpRequests(request -> request
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/h2/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/img/**")).permitAll()
@@ -56,10 +58,11 @@ public class SecurityConfig {
     }
 
 
-//    @Bean
-//    public WebSecurityCustomizer webSecurityCustomizer(){
-//        return (web) -> web.ignoring().anyRequest();
-//    }
-
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer(){
+        return (web) -> web.ignoring()  // spring security 의 필터를 거치지 않고 통
+                .requestMatchers(new AntPathRequestMatcher("/h2/**"))
+                .requestMatchers(new AntPathRequestMatcher("/favicon.ico"));
+    }
 }
 

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import shop.allegro.audit.Auditable;
 import shop.allegro.constant.Role;
 import shop.allegro.dto.MemberFormDto;
 
@@ -13,7 +14,7 @@ import shop.allegro.dto.MemberFormDto;
 @Getter
 @Setter
 @ToString
-public class Member {
+public class Member extends Auditable {
 
     @Id
     @Column(name="member_id")
