@@ -48,7 +48,7 @@ public class SecurityConfig {
 
         http
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
-                // 인증되지 않은 사용자가 리소스에 접근하였을 때 수행되는 핸들러를 등록한다.
+                // 인증되지 않은 사용자가 리소스에 접근하였을 때 수행되는 핸들러를 등록
         return http.build();
     }
 
