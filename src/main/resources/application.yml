@@ -3,6 +3,10 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+  servlet:
+    multipart:
+      maxFileSize: 20MB         #파일 한 개당 최대 사이즈
+      maxRequestSize: 100MB     #요청당 최대 파일 크기
   h2:
     console:
       enabled: true
@@ -17,4 +21,7 @@ spring:
     hibernate:
       ddl-auto: create
 
-
+#상품 이미지 업로드 경로
+itemImgLocation: /Users/selny/shop/item
+#리소스 업로드 경로
+uploadPath: file:///Users/selny/shop

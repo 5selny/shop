@@ -42,7 +42,7 @@ public class Member extends Auditable {
         member.setAddress(member.getAddress());
         String password = passwordEncoder.encode(memberFormDto.getPassword());
         member.setPassword(password);
-        member.setRole(Role.USER);
+        member.setRole(Role.ADMIN);
         return member;
     }
 
