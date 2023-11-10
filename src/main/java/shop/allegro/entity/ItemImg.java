@@ -16,13 +16,13 @@ public class ItemImg extends Auditable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String imgName;     // 이미지 파일명
+    private String imgName;
 
-    private String oriImgName;  // 원본 이미지 파일명
+    private String oriImgName;
 
-    private String imgUrl;      // 이미지 조회 경로
+    private String imgUrl;
 
-    private String repImgYn;    // 대표 이미지 여부
+    private String repImgYn;
 
     // 상품 엔티티와 다대일 단방향 관계로 매핑.
     // 지연 로딩을 설정하여 매핑된 상품 엔티티 정보가 필요할 경우 데이터를 조회하도록함
