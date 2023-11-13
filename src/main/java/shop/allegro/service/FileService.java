@@ -19,7 +19,7 @@ public class FileService {
         String savedFileName = uuid.toString() + extension;
         String fileUploadFullUrl = uploadPath + "/" + savedFileName;
         FileOutputStream fos = new FileOutputStream(fileUploadFullUrl);
-        fos.write(fileData);
+        fos.write(fileData);        // fileData 를 파일 출력 스트림에 입력
         fos.close();
         return savedFileName;
     }
